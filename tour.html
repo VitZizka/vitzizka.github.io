@@ -9,30 +9,29 @@
         body {
             background-color: #e3e4de; 
             color: #1a1a1a;
-            font-family: "Times", "Times New Roman", serif;
+            font-family: Arial, Helvetica, sans-serif;
             margin: 0;
             padding: 12vh 20px 6vh 20px; 
             text-align: center; 
             -webkit-font-smoothing: antialiased;
-            overflow-y: scroll; /* Prevents horizontal scrollbar jump */
+            overflow-y: scroll; 
         }
 
         h1 {
             font-size: 2.6rem;
-            font-weight: normal;
+            font-weight: bold;
             letter-spacing: 0.25em;
             margin: 0 0 3.5rem 0; 
         }
 
-        /* The phantom box logic applied to the tour list */
         .tour-list {
             width: 100%;
             max-width: 900px;
-            min-height: 55vh; /* Forces the box to be as tall as the photo */
+            min-height: 55vh; 
             margin: 0 auto 3.5rem auto; 
             display: flex;
             flex-direction: column;
-            justify-content: flex-start; /* Keeps the dates aligned to the top */
+            justify-content: flex-start; 
             text-align: left; 
         }
 
@@ -80,7 +79,7 @@
             color: #1a1a1a;
             letter-spacing: 0.15em;
             font-size: 0.8rem;
-            font-weight: normal;
+            font-weight: bold;
             transition: all 0.3s ease;
         }
 
@@ -100,7 +99,7 @@
             color: #1a1a1a;
             text-decoration: none;
             font-size: 1.15rem;
-            font-weight: normal;
+            font-weight: bold;
             letter-spacing: 0.2em;
             transition: opacity 0.3s ease;
         }
@@ -123,7 +122,6 @@
         .social-icons a:hover { opacity: 0.5; }
         .social-icons svg { width: 18px; height: 18px; fill: currentColor; display: block; }
 
-        /* Mobile Layout */
         @media (max-width: 600px) {
             .tour-row { flex-direction: column; gap: 1rem; text-align: center; }
             .tour-date-venue, .tour-location, .tour-ticket { text-align: center; flex: none; }
@@ -175,8 +173,8 @@
 
     <div class="nav-links">
         <a href="index.html">Home</a>
-        <a href="tour.html">Tour</a>
         <a href="https://ebay.com" target="_blank">Merch</a>
+        <a href="contact.html">Contact</a>
     </div>
 
     <div class="social-icons">
