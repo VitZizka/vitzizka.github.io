@@ -4,51 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vít Žižka - Tour</title>
+    <link rel="icon" type="image/jpeg" href="favicon_v.jpg">
     <style>
         body {
             background-color: #e6e7e2; 
             color: #1a1a1a;
             font-family: "Times New Roman", Times, Georgia, serif;
             margin: 0;
-            padding: 8vh 20px 4vh 20px;
+            padding: 4vh 20px;
             min-height: 100vh;
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             -webkit-font-smoothing: antialiased;
             overflow-y: scroll; 
         }
 
-        .page-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .content-wrapper {
             width: 100%;
             max-width: 900px;
-        }
-
-        .page-footer {
-            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: auto;
-            padding-top: 2rem;
         }
 
         h1 {
             font-size: 2.6rem;
             font-weight: 700;
             letter-spacing: 0.15em;
-            margin: 0 0 3rem 0;
+            margin: 0 0 3rem 0; /* Consistent spacing above content */
             text-align: center;
         }
 
         .tour-list {
             width: 100%;
-            margin-bottom: 2rem;
+            margin: 0 0 3rem 0; /* Consistent spacing below content */
         }
 
         .tour-row {
@@ -104,7 +96,7 @@
         }
 
         .nav-links {
-            margin-bottom: 2rem;
+            margin: 0 0 2rem 0;
             display: flex;
             justify-content: center;
             gap: 1.8rem;
@@ -147,7 +139,7 @@
 </head>
 <body>
 
-    <div class="page-content">
+    <div class="content-wrapper">
         <h1>Vít Žižka</h1>
 
         <div class="tour-list">
@@ -188,9 +180,7 @@
                 <div class="tour-ticket"><a href="#">TICKETS</a></div>
             </div>
         </div>
-    </div>
 
-    <div class="page-footer">
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="tour.html">Tour</a>
