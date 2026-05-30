@@ -82,6 +82,17 @@
 
         .social-icons a:hover { opacity: 0.5; }
         .social-icons svg { width: 18px; height: 18px; fill: currentColor; display: block; }
+
+        /* Mobile Layout */
+        @media (max-width: 600px) {
+            .contact-info p {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+                overflow-wrap: break-word; /* Safety net to ensure the email never breaks the screen width */
+                padding: 0 10px;
+            }
+        }
     </style>
 </head>
 <body>
