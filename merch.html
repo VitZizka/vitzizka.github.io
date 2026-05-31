@@ -24,16 +24,24 @@
             margin: 0 0 3.5rem 0; 
         }
 
-        /* The container waiting for Shopify */
-      .merch-container {
+     /* The Desktop Layout */
+        .merch-container {
             width: 100%;
             max-width: 900px;
             min-height: 55vh; 
             margin: 0 auto 3.5rem auto; 
-            display: flex;
-            flex-direction: column; /* This forces the items to stack vertically */
-            align-items: center; /* This keeps the single column perfectly centered on the screen */
-            gap: 5rem; /* I increased the gap so there is breathing room between the bottom of one shirt and the top of the next */
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* This creates exactly two side-by-side columns */
+            gap: 3rem; 
+            justify-items: center; /* This keeps each shirt perfectly centered in its own column */
+        }
+
+        /* The Mobile Layout */
+        @media (max-width: 768px) {
+            .merch-container {
+                grid-template-columns: 1fr; /* This forces it down to exactly one column on phones */
+                gap: 5rem; /* Keeps a nice breathing room between the vertically stacked items */
+            }
         }
 
         .nav-links {
