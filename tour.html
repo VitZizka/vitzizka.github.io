@@ -71,6 +71,12 @@
             text-align: right;
         }
 
+        /* NEW CLASS FOR THE PRICE TEXT */
+        .ticket-price {
+            font-size: 1rem;
+            letter-spacing: 0.1em;
+        }
+
         .tour-ticket a {
             display: inline-block;
             border: 1px solid #1a1a1a;
@@ -133,14 +139,7 @@
     <h1>Tour</h1>
 
     <div class="tour-list">
-        <div class="tour-row">
-            <div class="tour-date-venue">
-                <strong>JUN 6, 2026</strong><br>
-                Hospůdka U Mlejna
-            </div>
-            <div class="tour-location">Nemojov, Czechia</div>
-            <div class="tour-ticket"><a href="#">TICKETS</a></div>
-        </div>
+        
 
         <div class="tour-row">
             <div class="tour-date-venue">
@@ -149,16 +148,18 @@
                 Nultý den léta
             </div>
             <div class="tour-location">Pelhřimov, Czechia</div>
-            <div class="tour-ticket"><a href="#">TICKETS</a></div>
+            <div class="tour-ticket"><span class="ticket-price">150 Kč</span></div>
         </div>
 
+
+        
         <div class="tour-row">
             <div class="tour-date-venue">
                 <strong>JUL 16, 2026</strong><br>
                 Café Hostel
             </div>
             <div class="tour-location">České Budějovice, Czechia</div>
-            <div class="tour-ticket"><a href="#">TICKETS</a></div>
+            <div class="tour-ticket"><span class="ticket-price">FREE</span></div>
         </div>
 
         <div class="tour-row">
@@ -167,7 +168,7 @@
                 Hudební klub Melodka
             </div>
             <div class="tour-location">Brno, Czechia</div>
-            <div class="tour-ticket"><a href="#">TICKETS</a></div>
+            <div class="tour-ticket"><span class="ticket-price">FREE</span></div>
         </div>
 
          <div class="tour-row">
@@ -176,10 +177,9 @@
                 Klub Stamina
             </div>
             <div class="tour-location">Liberec, Czechia</div>
-            <div class="tour-ticket"><a href="#">TICKETS</a></div>
+            <div class="tour-ticket"><span class="ticket-price">FREE</span></div>
         </div>
 
-        
     </div>
 
     <div class="nav-links">
