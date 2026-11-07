@@ -4,10 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vít Žižka - Tour</title>
+    <meta name="description" content="Upcoming and past concerts of Vít Žižka.">
+    <link rel="canonical" href="https://www.vitzizka.com/tour.html">
+
+    <!-- Link previews (Instagram, WhatsApp, Messenger, Facebook) -->
+    <meta property="og:site_name" content="Vít Žižka">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.vitzizka.com/tour.html">
+    <meta property="og:title" content="Vít Žižka - Tour">
+    <meta property="og:description" content="Upcoming and past concerts of Vít Žižka.">
+    <meta property="og:image" content="https://www.vitzizka.com/VitZizka_ProfilePhoto.jpg">
+    <meta property="og:image:width" content="2576">
+    <meta property="og:image:height" content="2576">
+    <meta property="og:image:alt" content="Portrait of Vít Žižka">
+    <meta name="twitter:card" content="summary">
+
     <link rel="icon" type="image/png" href="favicon_v2.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -25,10 +40,31 @@
                 data-date must be the show's date as YEAR-MONTH-DAY, e.g. 2027-03-14.
                 Once the date has passed, the show moves to "Past shows" by itself.
 
-                For a ticket link, replace the FREE line with:
-                <div class="tour-ticket"><a href="https://link-to-tickets" target="_blank">TICKETS</a></div>
+                The last column can be left empty, or hold:
+                  a free show:  <div class="tour-ticket"><span class="ticket-price">FREE</span></div>
+                  tickets:      <div class="tour-ticket"><a href="https://link-to-tickets" target="_blank">TICKETS</a></div>
+
+                The order below doesn't matter; the page sorts the shows by date.
             -->
             <div id="upcoming-list">
+
+                <div class="tour-row" data-date="2026-11-28">
+                    <div class="tour-date-venue">
+                        <strong>NOV 28, 2026</strong><br>
+                        Púčko
+                    </div>
+                    <div class="tour-location">Humpolec, Czechia</div>
+                    <div class="tour-ticket"><span class="ticket-price">FREE</span></div>
+                </div>
+
+                <div class="tour-row" data-date="2026-11-06">
+                    <div class="tour-date-venue">
+                        <strong>NOV 6, 2026</strong><br>
+                        PECKA Art Café
+                    </div>
+                    <div class="tour-location">Kladno, Czechia</div>
+                    <div class="tour-ticket"><span class="ticket-price">FREE</span></div>
+                </div>
 
                 <div class="tour-row" data-date="2026-09-19">
                     <div class="tour-date-venue">
@@ -39,12 +75,39 @@
                     <div class="tour-ticket"><span class="ticket-price">FREE</span></div>
                 </div>
 
-                <div class="tour-row" data-date="2026-11-06">
+                <div class="tour-row" data-date="2026-08-19">
                     <div class="tour-date-venue">
-                        <strong>NOV 6, 2026</strong><br>
-                        PECKA Art Café
+                        <strong>AUG 19, 2026</strong><br>
+                        Melodka
                     </div>
-                    <div class="tour-location">Kladno, Czechia</div>
+                    <div class="tour-location">Brno, Czechia</div>
+                    <div class="tour-ticket"><span class="ticket-price">FREE</span></div>
+                </div>
+
+                <div class="tour-row" data-date="2026-07-16">
+                    <div class="tour-date-venue">
+                        <strong>JUL 16, 2026</strong><br>
+                        CaféHostel
+                    </div>
+                    <div class="tour-location">České Budějovice, Czechia</div>
+                    <div class="tour-ticket"><span class="ticket-price">FREE</span></div>
+                </div>
+
+                <div class="tour-row" data-date="2026-07-04">
+                    <div class="tour-date-venue">
+                        <strong>JUL 4, 2026</strong><br>
+                        KVIFF
+                    </div>
+                    <div class="tour-location">Karlovy Vary, Czechia</div>
+                    <div class="tour-ticket"><span class="ticket-price">FREE</span></div>
+                </div>
+
+                <div class="tour-row" data-date="2026-06-20">
+                    <div class="tour-date-venue">
+                        <strong>JUN 20, 2026</strong><br>
+                        Máj
+                    </div>
+                    <div class="tour-location">Pelhřimov, Czechia</div>
                     <div class="tour-ticket"><span class="ticket-price">FREE</span></div>
                 </div>
 

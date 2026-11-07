@@ -5,9 +5,9 @@
 :root {
   --bg:   #D0D0D0;
   --ink:  #1a1a1a;
-  /* Futura on Mac/iPhone (or wherever it's installed); Jost, a free
-     Futura-style font, on Windows and Android */
-  --font: Futura, "Futura PT", Jost, "Century Gothic", sans-serif;
+  --soft: rgba(26, 26, 26, 0.68);   /* quieter text */
+  --rule: rgba(0, 0, 0, 0.12);      /* thin dividing lines */
+  --font: "Libre Caslon Text", Georgia, "Times New Roman", serif;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -27,15 +27,40 @@ h1 {
   margin: 0 0 1.7rem 0;
   font-size: 2.6rem;
   font-weight: normal;
-  letter-spacing: 0.25em;
-  padding-left: 0.25em;            /* balances the space letter-spacing adds after the last letter */
+  letter-spacing: 0.2em;
+  padding-left: 0.2em;             /* balances the space letter-spacing adds after the last letter */
 }
 
 a { color: var(--ink); }
 
-a:focus-visible {
+a:focus-visible,
+button:focus-visible {
   outline: 1px solid var(--ink);
   outline-offset: 4px;
+}
+
+/* Buttons (Contact page, ticket links) */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.7rem;
+  border: 1px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.1s ease, color 0.1s ease;
+}
+.btn:hover,
+.btn-solid {
+  background-color: var(--ink);
+  color: #e3e4de;
+}
+.btn-solid:hover {
+  background-color: transparent;
+  color: var(--ink);
 }
 
 /* ---------- Menu ---------- */
@@ -51,8 +76,8 @@ a:focus-visible {
 .nav-links a {
   position: relative;
   text-decoration: none;
-  font-size: 1.25rem;
-  letter-spacing: 0.2em;
+  font-size: 1.15rem;
+  letter-spacing: 0.15em;
   transition: opacity 0.1s ease;
 }
 
@@ -63,8 +88,8 @@ a:focus-visible {
   content: "";
   position: absolute;
   left: 0;
-  right: 0.2em;
-  bottom: -5px;
+  right: 0.15em;
+  bottom: -6px;
   height: 1px;
   background: currentColor;
 }
@@ -102,6 +127,35 @@ a:focus-visible {
   display: block;
 }
 
+/* ==========================================================
+   About
+   ========================================================== */
+
+.about {
+  width: 100%;
+  max-width: 36rem;
+  min-height: 48vh;
+  margin: 0 auto 3rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-text p {
+  margin: 0 0 1.3rem 0;
+  font-size: 1.02rem;
+  line-height: 1.85;
+}
+
+.about-text p:last-child { margin-bottom: 0; }
+
+.about-text .lead {
+  margin-bottom: 2rem;
+  font-size: 1.3rem;
+  font-style: italic;
+  line-height: 1.6;
+}
+
 /* Spotify player, shown 30% larger so its text is easier to read */
 .listen {
   --scale: 1.3;
@@ -122,36 +176,6 @@ a:focus-visible {
 }
 
 /* ==========================================================
-   About
-   ========================================================== */
-
-.about-text {
-  width: 100%;
-  max-width: 36rem;
-  min-height: 48vh;
-  margin: 0 auto 2.6rem auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.about-text p {
-  margin: 0 0 1.4rem 0;
-  font-size: 1.1rem;
-  line-height: 1.75;
-  letter-spacing: 0.03em;
-}
-
-.about-text p:last-child { margin-bottom: 0; }
-
-.about-text .lead {
-  margin-bottom: 2.2rem;
-  font-size: 1.35rem;
-  line-height: 1.55;
-  letter-spacing: 0.05em;
-}
-
-/* ==========================================================
    Tour
    ========================================================== */
 
@@ -163,13 +187,14 @@ a:focus-visible {
   text-align: left;
 }
 
-.tour-section + .tour-section { margin-top: 3rem; }
+.tour-section + .tour-section { margin-top: 3.5rem; }
 
 .tour-section h2 {
   margin: 0 0 0.5rem 0;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: normal;
-  letter-spacing: 0.2em;
+  font-style: italic;
+  letter-spacing: 0.1em;
   text-align: center;
 }
 
@@ -177,28 +202,29 @@ a:focus-visible {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--rule);
+  padding: 1.4rem 0;
 }
 
 .tour-row:last-child { border-bottom: none; }
 
 .tour-date-venue {
   flex: 1;
-  letter-spacing: 0.1em;
-  line-height: 1.5;
+  letter-spacing: 0.06em;
+  line-height: 1.6;
   font-size: 0.95rem;
 }
 
 .tour-date-venue strong {
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
 }
 
 .tour-location {
   flex: 1;
   text-align: center;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.06em;
   font-size: 0.95rem;
 }
 
@@ -208,7 +234,7 @@ a:focus-visible {
 }
 
 .ticket-price {
-  font-size: 1rem;
+  font-size: 0.95rem;
   letter-spacing: 0.1em;
 }
 
@@ -228,15 +254,14 @@ a:focus-visible {
 }
 
 /* Shows that have already happened */
-.tour-section.past .tour-row { opacity: 0.55; }
+.tour-section.past .tour-row { opacity: 0.55; padding: 1.1rem 0; }
 .tour-section.past .tour-ticket { visibility: hidden; }
 
 .tour-empty {
   margin: 1.5rem 0;
   text-align: center;
   font-size: 1rem;
-  letter-spacing: 0.08em;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 .tour-empty a { text-underline-offset: 0.25em; }
@@ -248,14 +273,29 @@ a:focus-visible {
 
 .store-container {
   width: 100%;
-  max-width: 900px;
+  max-width: 1080px;
   min-height: 55vh;
-  margin: 1.8rem auto 3.5rem auto;
+  margin: 2.5rem auto 0 auto;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 3rem;
-  justify-items: center;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 3.5rem 2.5rem;
+  align-items: start;
 }
+
+.store-container > div { width: 100%; }
+
+.store-note {
+  max-width: 34rem;
+  margin: 3.5rem auto 3rem auto;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--rule);
+  color: var(--soft);
+  font-size: 0.92rem;
+  line-height: 1.8;
+}
+
+.store-note a { color: var(--ink); text-underline-offset: 0.2em; }
+.store-note a:hover { opacity: 0.5; }
 
 /* ==========================================================
    Contact
@@ -263,7 +303,7 @@ a:focus-visible {
 
 .contact-info {
   width: 100%;
-  max-width: 420px;
+  max-width: 560px;
   min-height: 48vh;
   margin: 0 auto 2.6rem auto;
   display: flex;
@@ -272,35 +312,49 @@ a:focus-visible {
   align-items: center;
 }
 
-.contact-info p {
-  margin: 0.5rem 0;
-  font-size: 1.2rem;
-  letter-spacing: 0.15em;
-  overflow-wrap: anywhere;
+.contact-intro {
+  margin: 0 0 1.1rem 0;
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.6;
 }
 
-.contact-info a {
+.contact-email {
+  font-size: 1.45rem;
+  letter-spacing: 0.06em;
   text-decoration: none;
+  overflow-wrap: anywhere;
   transition: opacity 0.1s ease;
 }
+.contact-email:hover { opacity: 0.5; }
 
-.contact-info a:hover { opacity: 0.5; }
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.9rem;
+  margin-top: 2.2rem;
+}
+
+.contact-actions .btn { min-width: 11.5rem; }
 
 /* ==========================================================
-   Phones
+   Smaller screens
    ========================================================== */
 
-@media (max-width: 860px) {
-  .store-container { grid-template-columns: 1fr; gap: 5rem; }
+@media (max-width: 960px) {
+  .store-container { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem 2rem; }
 }
 
 @media (max-width: 600px) {
-  h1 { font-size: 2.2rem; }
-  .nav-links { gap: 0.6rem 0.9rem; }
-  .nav-links a { font-size: 1rem; letter-spacing: 0.12em; }
-  .nav-links a[aria-current="page"]::after { right: 0.12em; }
-  .tour-section.past .tour-ticket { display: none; }
-  .about-text .lead { font-size: 1.2rem; }
-  .tour-row { flex-direction: column; gap: 1rem; text-align: center; }
+  h1 { font-size: 2.1rem; }
+  .nav-links { gap: 0.6rem 0.85rem; }
+  .nav-links a { font-size: 0.98rem; letter-spacing: 0.06em; }
+  .nav-links a[aria-current="page"]::after { right: 0.06em; }
+  .about-text .lead { font-size: 1.15rem; }
+  .tour-row { flex-direction: column; gap: 0.6rem; text-align: center; }
   .tour-date-venue, .tour-location, .tour-ticket { text-align: center; flex: none; }
+  .tour-section.past .tour-ticket { display: none; }
+  .store-container { grid-template-columns: minmax(0, 1fr); max-width: 360px; gap: 3.5rem; }
+  .contact-email { font-size: 1.15rem; letter-spacing: 0.03em; }
 }

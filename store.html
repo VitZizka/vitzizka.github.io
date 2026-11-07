@@ -4,10 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vít Žižka - Store</title>
+    <meta name="description" content="Official merch from Vít Žižka.">
+    <link rel="canonical" href="https://www.vitzizka.com/store.html">
+
+    <!-- Link previews (Instagram, WhatsApp, Messenger, Facebook) -->
+    <meta property="og:site_name" content="Vít Žižka">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.vitzizka.com/store.html">
+    <meta property="og:title" content="Vít Žižka - Store">
+    <meta property="og:description" content="Official merch from Vít Žižka.">
+    <meta property="og:image" content="https://www.vitzizka.com/VitZizka_ProfilePhoto.jpg">
+    <meta property="og:image:width" content="2576">
+    <meta property="og:image:height" content="2576">
+    <meta property="og:image:alt" content="Portrait of Vít Žižka">
+    <meta name="twitter:card" content="summary">
+
     <link rel="icon" type="image/png" href="favicon_v2.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,6 +30,11 @@
     <h1>Store</h1>
 
     <div class="store-container" id="store"></div>
+
+    <p class="store-note">
+        Payment and checkout are handled securely by Shopify.<br>
+        Questions about an order? Write to <a href="mailto:vit.zizka.music@gmail.com">vit.zizka.music@gmail.com</a>.
+    </p>
 
     <nav class="nav-links" aria-label="Main">
         <a href="index.html">Home</a>
@@ -52,56 +72,60 @@
             '11342719779157'
         ];
 
-        var FONT = 'Futura, Jost, sans-serif';
+        // ---------- Look of the products, pop-up and cart ----------
+        var FONT = '"Libre Caslon Text", Georgia, serif';
+        var FONTS = ['Libre Caslon Text:400,400i'];
+        var INK = '#1a1a1a';
+        var SOFT = 'rgba(26, 26, 26, 0.68)';
 
         var buttonStyle = {
             'font-family': FONT,
-            'font-size': '18px',
-            'padding-top': '17px',
-            'padding-bottom': '17px',
-            'padding-left': '30px',
-            'padding-right': '30px',
-            'background-color': '#151515',
-            ':hover': { 'background-color': '#242424' },
-            ':focus': { 'background-color': '#242424' },
+            'font-size': '15px',
+            'letter-spacing': '0.08em',
+            'width': '100%',
+            'padding-top': '14px',
+            'padding-bottom': '14px',
+            'padding-left': '20px',
+            'padding-right': '20px',
+            'color': '#ecebe7',
+            'background-color': INK,
+            ':hover': { 'background-color': '#3a3a3a' },
+            ':focus': { 'background-color': '#3a3a3a' },
             'border-radius': '0px'
         };
 
         var quantityStyle = {
-            'font-size': '18px',
-            'padding-top': '17px',
-            'padding-bottom': '17px'
+            'font-family': FONT,
+            'font-size': '15px',
+            'padding-top': '14px',
+            'padding-bottom': '14px',
+            'border-radius': '0px'
         };
-
-        var textStyle = { 'font-family': FONT, 'font-weight': 'normal', 'color': '#1a1a1a' };
 
         var options = {
             product: {
                 styles: {
-                    product: {
-                        '@media (min-width: 601px)': {
-                            'max-width': 'calc(25% - 20px)',
-                            'margin-left': '20px',
-                            'margin-bottom': '50px'
-                        }
+                    product: { 'text-align': 'center' },
+                    title: {
+                        'font-family': FONT,
+                        'font-size': '17px',
+                        'font-weight': 'normal',
+                        'letter-spacing': '0.03em',
+                        'color': INK,
+                        'margin-top': '18px'
                     },
-                    title: textStyle,
+                    prices: { 'margin-bottom': '14px' },
+                    options: { 'max-width': '100% !important' },   // size menu as wide as the button
+                    price: { 'font-family': FONT, 'font-size': '15px', 'color': SOFT },
+                    compareAt: { 'font-family': FONT, 'font-size': '13px', 'color': SOFT },
+                    unitPrice: { 'font-family': FONT, 'font-size': '13px', 'color': SOFT },
                     button: buttonStyle,
-                    quantityInput: quantityStyle,
-                    price: textStyle,
-                    compareAt: textStyle,
-                    unitPrice: textStyle
+                    buttonWrapper: { 'margin-top': '12px' },
+                    quantityInput: quantityStyle
                 },
-                width: '380px',
-                googleFonts: ['Jost'],
+                width: '100%',          // fills its column; the page decides the columns
+                googleFonts: FONTS,
                 text: { button: 'Add to cart' }
-            },
-            productSet: {
-                styles: {
-                    products: {
-                        '@media (min-width: 601px)': { 'margin-left': '-20px' }
-                    }
-                }
             },
             // The pop-up that opens when someone clicks a product
             modalProduct: {
@@ -119,50 +143,62 @@
                             'margin-bottom': '0px'
                         }
                     },
+                    title: { 'font-family': FONT, 'font-weight': 'normal', 'font-size': '26px', 'letter-spacing': '0.03em', 'color': INK },
+                    price: { 'font-family': FONT, 'font-weight': 'normal', 'font-size': '17px', 'color': SOFT },
+                    compareAt: { 'font-family': FONT, 'font-weight': 'normal', 'font-size': '15px', 'color': SOFT },
+                    unitPrice: { 'font-family': FONT, 'font-weight': 'normal', 'font-size': '14px', 'color': SOFT },
+                    description: { 'font-family': FONT, 'font-size': '15px', 'line-height': '1.7', 'color': INK },
                     button: buttonStyle,
-                    quantityInput: quantityStyle,
-                    title: { 'font-family': FONT, 'font-weight': 'normal', 'font-size': '26px', 'color': '#1a1a1a' },
-                    price: { 'font-family': FONT, 'font-weight': 'normal', 'font-size': '18px', 'color': '#1a1a1a' },
-                    compareAt: { 'font-family': FONT, 'font-weight': 'normal', 'font-size': '15px', 'color': '#1a1a1a' },
-                    unitPrice: { 'font-family': FONT, 'font-weight': 'normal', 'font-size': '15px', 'color': '#1a1a1a' }
+                    quantityInput: quantityStyle
                 },
-                googleFonts: ['Jost'],
+                googleFonts: FONTS,
                 text: { button: 'Add to cart' }
             },
             option: {
                 styles: {
-                    label: { 'font-family': FONT, 'font-size': '15px' },
-                    select: { 'font-family': FONT }
+                    label: { 'font-family': FONT, 'font-size': '14px', 'color': SOFT },
+                    wrapper: { 'border': '1px solid rgba(26, 26, 26, 0.35)', 'border-radius': '0px', 'background-color': 'transparent' },
+                    select: { 'font-family': FONT, 'font-size': '15px', 'color': INK, 'padding-top': '11px', 'padding-bottom': '11px' }
                 }
             },
             cart: {
                 styles: {
-                    button: {
-                        'font-family': FONT,
-                        'font-size': '18px',
-                        'padding-top': '17px',
-                        'padding-bottom': '17px',
-                        'background-color': '#151515',
-                        ':hover': { 'background-color': '#242424' },
-                        ':focus': { 'background-color': '#242424' },
-                        'border-radius': '0px'
-                    }
+                    title: { 'font-family': FONT, 'font-weight': 'normal', 'color': INK },
+                    header: { 'color': INK },
+                    lineItems: { 'font-family': FONT, 'color': INK },
+                    subtotalText: { 'font-family': FONT, 'color': INK },
+                    subtotal: { 'font-family': FONT, 'color': INK },
+                    notice: { 'font-family': FONT, 'color': SOFT },
+                    currency: { 'font-family': FONT, 'color': SOFT },
+                    empty: { 'font-family': FONT, 'color': SOFT },
+                    close: { 'color': INK, ':hover': { 'color': INK } },
+                    button: buttonStyle
                 },
-                text: { total: 'Subtotal', button: 'Checkout' },
+                text: { title: 'Your cart', total: 'Subtotal', button: 'Checkout' },
                 popup: false,
-                googleFonts: ['Jost']
+                googleFonts: FONTS
             },
+            lineItem: {
+                styles: {
+                    itemTitle: { 'font-family': FONT, 'color': INK },
+                    variantTitle: { 'font-family': FONT, 'color': SOFT },
+                    price: { 'font-family': FONT, 'color': INK },
+                    fullPrice: { 'font-family': FONT, 'color': SOFT },
+                    quantityInput: { 'font-family': FONT }
+                }
+            },
+            // The small "cart" tab on the right edge of the screen
             toggle: {
                 styles: {
                     toggle: {
                         'font-family': FONT,
-                        'background-color': '#151515',
-                        ':hover': { 'background-color': '#242424' },
-                        ':focus': { 'background-color': '#242424' }
+                        'background-color': INK,
+                        ':hover': { 'background-color': '#3a3a3a' },
+                        ':focus': { 'background-color': '#3a3a3a' }
                     },
-                    count: { 'font-size': '18px' }
+                    count: { 'font-size': '16px' }
                 },
-                googleFonts: ['Jost']
+                googleFonts: FONTS
             }
         };
 
