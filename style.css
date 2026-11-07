@@ -7,8 +7,23 @@
   --ink:  #1a1a1a;
   --soft: rgba(26, 26, 26, 0.68);   /* quieter text */
   --rule: rgba(0, 0, 0, 0.12);      /* thin dividing lines */
-  --font: "Libre Caslon Text", Georgia, "Times New Roman", serif;
+  --font: "Open Sans", Arial, sans-serif;            /* regular text */
+  --heading: Feijoa, Lora, Georgia, serif;            /* titles: Feijoa if installed below, Lora until then */
 }
+
+/* FEIJOA (paid font from Klim Type Foundry, klim.co.nz).
+   Once you have the web font files, put them in a folder called "fonts"
+   next to this file, check the file name matches, and remove the slash-star
+   comment marks around the block below.
+
+@font-face {
+  font-family: "Feijoa";
+  src: url("fonts/feijoa-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+*/
 
 *, *::before, *::after { box-sizing: border-box; }
 
@@ -25,6 +40,7 @@ body {
 
 h1 {
   margin: 0 0 1.7rem 0;
+  font-family: var(--heading);
   font-size: 2.6rem;
   font-weight: bold;
   letter-spacing: 0.2em;
@@ -190,6 +206,7 @@ button:focus-visible {
 
 .tour-section h2 {
   margin: 0 0 0.5rem 0;
+  font-family: var(--heading);
   font-size: 1.3rem;
   font-weight: bold;
   letter-spacing: 0.1em;
@@ -358,4 +375,4 @@ button:focus-visible {
 
 /* Home: equal visible space above and below the photo */
 .home h1 { margin-bottom: 2.45rem; }
-.home .photo-container { margin-bottom: 2.95rem; }
+.home .photo-container { margin-bottom: 2.6rem; }
