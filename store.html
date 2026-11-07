@@ -19,10 +19,12 @@
     <meta property="og:image:alt" content="Portrait of Vít Žižka">
     <meta name="twitter:card" content="summary">
 
-    <link rel="icon" type="image/png" href="favicon_v2.png">
+    <link rel="icon" href="favicon.ico?v=3" sizes="any">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96.png?v=3">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&display=swap">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -74,7 +76,7 @@
 
         // ---------- Look of the products, pop-up and cart ----------
         var FONT = '"Libre Caslon Text", Georgia, serif';
-        var FONTS = ['Libre Caslon Text:400,400i'];
+        var FONTS = ['Libre Caslon Text:400,700'];
         var INK = '#1a1a1a';
         var SOFT = 'rgba(26, 26, 26, 0.68)';
 
@@ -112,7 +114,9 @@
                         'font-weight': 'normal',
                         'letter-spacing': '0.03em',
                         'color': INK,
-                        'margin-top': '18px'
+                        'margin-top': '18px',
+                        'line-height': '1.4',
+                        'min-height': '2.8em'   // room for two lines, so prices and buttons line up
                     },
                     prices: { 'margin-bottom': '14px' },
                     options: { 'max-width': '100% !important' },   // size menu as wide as the button
