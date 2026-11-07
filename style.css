@@ -1,0 +1,248 @@
+/* ==========================================================
+   Vít Žižka — shared styles for every page
+   Link it from each page with:  <link rel="stylesheet" href="style.css">
+   ========================================================== */
+
+:root {
+  --room:   #23231f;                    /* the dark around the portrait, sampled from the photo */
+  --shadow: #1a1a17;                    /* edges of the page */
+  --paper:  #ebe7df;                    /* main text */
+  --ash:    #9d998f;                    /* quieter text, inactive links */
+  --haze:   rgba(235, 231, 223, 0.16);  /* hairlines */
+  --light:  rgba(255, 246, 228, 0.06);  /* the spotlight */
+  --serif:  "EB Garamond", Garamond, "Times New Roman", serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { background: var(--room); }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  padding: 0 16px;
+  color: var(--paper);
+  font-family: var(--serif);
+  font-size: 1.125rem;
+  line-height: 1.55;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+html { overflow-x: hidden; }
+
+/* Darker edges, like the photo's vignette */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(120% 95% at 50% 38%, transparent 42%, var(--shadow) 100%);
+}
+
+/* Paper grain over everything, matching the portrait's texture */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.09;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  background-size: 240px 240px;
+  mix-blend-mode: overlay;
+}
+
+/* A dim torch that follows the cursor (desktop only, switched on by site.js) */
+.spotlight {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  background: radial-gradient(560px circle at var(--x, 50%) var(--y, 40%), var(--light), transparent 70%);
+}
+.spotlight.is-on { opacity: 1; }
+
+a { color: inherit; }
+
+a:focus-visible,
+iframe:focus-visible {
+  outline: 1px solid var(--paper);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* ---------- Header: the V and the navigation ---------- */
+
+.site-header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding-top: clamp(28px, 6vh, 56px);
+}
+
+.mark {
+  display: block;
+  color: var(--paper);
+  line-height: 0;
+  transition: opacity 0.2s ease;
+}
+.mark:hover { opacity: 0.7; }
+.mark svg { display: block; width: auto; height: 44px; overflow: visible; }
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 34px;
+}
+
+.site-nav a {
+  padding: 4px 0;
+  color: var(--ash);
+  font-size: 1.15rem;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  text-underline-offset: 0.38em;
+  text-decoration-thickness: 1px;
+  transition: color 0.2s ease;
+}
+.site-nav a:hover { color: var(--paper); }
+.site-nav a[aria-current="page"] {
+  color: var(--paper);
+  text-decoration-line: underline;
+  text-decoration-color: var(--ash);
+}
+
+/* ---------- Main ---------- */
+
+main {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* ---------- Footer: socials ---------- */
+
+.site-footer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 64px 0 32px;
+}
+
+.social { display: flex; gap: 14px; }
+.social a {
+  display: block;
+  padding: 6px;
+  color: var(--ash);
+  transition: color 0.2s ease;
+}
+.social a:hover { color: var(--paper); }
+.social svg { display: block; width: 18px; height: 18px; fill: currentColor; }
+
+.colophon { margin: 0; color: var(--ash); font-size: 0.95rem; }
+
+/* ==========================================================
+   Home page
+   ========================================================== */
+
+.page-home .mark svg { height: 64px; }
+
+.portrait {
+  position: relative;
+  isolation: isolate;
+  width: min(480px, 100%);
+  margin: clamp(12px, 3vh, 32px) auto 0;
+}
+
+/* Light spilling out of the photo onto the wall */
+.portrait::before {
+  content: "";
+  position: absolute;
+  /* reaches 32% past the photo, but never past the screen edge */
+  inset: -32% max(-32%, calc(50% - 50vw));
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(closest-side, rgba(255, 246, 228, 0.07), transparent);
+}
+
+.portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* Fade the photo's edges into the page so there's no visible box */
+  -webkit-mask-image: radial-gradient(closest-side, #000 70%, transparent 100%);
+          mask-image: radial-gradient(closest-side, #000 70%, transparent 100%);
+}
+
+.name {
+  position: relative;
+  margin: -0.45em 0 0;
+  font-size: clamp(2.5rem, 8vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+}
+
+.tagline {
+  max-width: 32ch;
+  margin: 10px auto 0;
+  color: var(--ash);
+  font-size: 1.25rem;
+  font-style: italic;
+}
+
+.listen {
+  width: min(480px, 100%);
+  margin: 44px auto 0;
+}
+.listen iframe {
+  display: block;
+  width: 100%;
+  height: 152px;
+  border: 0;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* The one orchestrated moment: the V writes itself, then the lights come up */
+@media (prefers-reduced-motion: no-preference) {
+  .page-home .v-ink {
+    stroke-dasharray: 2080;
+    stroke-dashoffset: 2080;
+    animation: v-write 2.1s cubic-bezier(0.55, 0.05, 0.35, 1) 0.25s forwards;
+  }
+  .page-home .portrait img {
+    opacity: 0;
+    animation: lights-up 1.8s ease-out 0.6s forwards;
+  }
+}
+@keyframes v-write   { to { stroke-dashoffset: 0; } }
+@keyframes lights-up { to { opacity: 1; } }
+
+/* ---------- Phones ---------- */
+
+@media (max-width: 600px) {
+  body { font-size: 1.0625rem; }
+  .site-nav { gap: 4px 22px; }
+  .site-nav a { font-size: 1.05rem; }
+  .page-home .mark svg { height: 54px; }
+  .tagline { font-size: 1.15rem; }
+  .listen { margin-top: 36px; }
+}
