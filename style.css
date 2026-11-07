@@ -159,16 +159,14 @@ button:focus-visible {
 
 .about-text p {
   margin: 0 0 1.3rem 0;
-  font-size: 1.02rem;
-  line-height: 1.85;
+  font-size: 1.3rem;
+  line-height: 1.6;
 }
 
 .about-text p:last-child { margin-bottom: 0; }
 
 .about-text .lead {
   margin-bottom: 2rem;
-  font-size: 1.3rem;
-  line-height: 1.6;
 }
 
 /* Spotify player, shown 30% larger so its text is easier to read */
@@ -365,7 +363,7 @@ button:focus-visible {
   .nav-links { gap: 0.6rem 0.85rem; }
   .nav-links a { font-size: 0.98rem; letter-spacing: 0.06em; }
   .nav-links a[aria-current="page"]::after { right: 0.06em; }
-  .about-text .lead { font-size: 1.15rem; }
+  .about-text p { font-size: 1.15rem; }
   .tour-row { flex-direction: column; gap: 0.6rem; text-align: center; }
   .tour-date-venue, .tour-location, .tour-ticket { text-align: center; flex: none; }
   .tour-section.past .tour-ticket { display: none; }
